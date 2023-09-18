@@ -34,3 +34,10 @@ try:
     print(apply_limit(bmi, "a"))
 except ValueError as e:
     print(e)
+
+try:
+    bmi = give_bmi([1, 2], [1, 2])
+    print("bmi", type(bmi))
+    print(apply_limit([2, "a"], 26))
+except ValueError as e:
+    print(e)
