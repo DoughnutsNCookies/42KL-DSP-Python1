@@ -7,37 +7,22 @@ bmi = give_bmi(height, weight)
 print(bmi, type(bmi))
 print(apply_limit(bmi, 26))
 
-try:
-    bmi = give_bmi([1, 2], [1, 2, 3])
-    print(bmi, type(bmi))
-    print(apply_limit(bmi, 26))
-except ValueError as e:
-    print(e)
+bmi = give_bmi([1, 2], [1, 2, 3])
+print(bmi, type(bmi))
+print(apply_limit(bmi, 26))
 
-try:
-    bmi = give_bmi([1, 2], [1, "a"])
-    print(bmi, type(bmi))
-    print(apply_limit(bmi, 26))
-except TypeError as e:
-    print(e)
+bmi = give_bmi([1, 2], [1, "a"])
+print(bmi, type(bmi))
+print(apply_limit(bmi, 26))
 
-try:
-    bmi = give_bmi([1, 2], [1, -2])
-    print(bmi, type(bmi))
-    print(apply_limit(bmi, 26))
-except ValueError as e:
-    print(e)
+bmi = give_bmi([1, 2], [1, -2])
+print(bmi, type(bmi))
+print(apply_limit(bmi, 26))
 
-try:
-    bmi = give_bmi([1, 2], [1, 2])
-    print(bmi, type(bmi))
-    print(apply_limit(bmi, "a"))
-except TypeError as e:
-    print(e)
+bmi = give_bmi([1, 2], [1, 2])
+print(bmi, type(bmi))
+print(apply_limit(bmi, "a"))
 
-try:
-    bmi = give_bmi([1, 2], [1, 2])
-    print("bmi", type(bmi))
-    print(apply_limit([2, "a"], 26))
-except TypeError as e:
-    print(e)
+bmi = give_bmi([1, 2], [1, 2])
+print("bmi", type(bmi))
+print(apply_limit([2, "a"], 26))
