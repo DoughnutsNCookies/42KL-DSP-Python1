@@ -21,6 +21,9 @@ def ft_zoom(path: str, factor: int) -> list:
         return []
 
     pixel_data = ft_load(path)
+    if pixel_data == []:
+        return []
+
     print(pixel_data)
     if factor == 1:
         new_pixel_data = pixel_data
