@@ -8,17 +8,6 @@ family = [[1.80, 78.4],
 print(slice_me(family, 0, 2))
 print(slice_me(family, 1, -2))
 
-try:
-    print(slice_me([[1, 2], [1, 2, 3]], 1, 5))
-except ValueError as e:
-    print(e)
-
-try:
-    print(slice_me([[1, 2], [1, 3]], "a", 5))
-except TypeError as e:
-    print(e)
-
-try:
-    print(slice_me([[1, 2], [1, 3]], 1, "a"))
-except TypeError as e:
-    print(e)
+print(slice_me([[1, 2], [1, 2, 3]], 1, 5))
+print(slice_me([[1, 2], [1, 3]], "a", 5))
+print(slice_me([[1, 2], [1, 3]], 1, "a"))

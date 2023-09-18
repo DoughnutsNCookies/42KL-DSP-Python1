@@ -5,16 +5,19 @@ def slice_me(family: list, start: int, end: int) -> list:
         Return the sliced array
     """
     if not isinstance(family, list):
-        raise TypeError("family is not a list")
+        print("family is not a list")
+        return []
 
     if not (isinstance(start, int) and isinstance(end, int)):
-        raise TypeError("start and end must be integers")
+        print("start and end must be integers")
+        return []
 
     x = len(family)
     y = len(family[0])
     for f in family:
         if len(f) != y:
-            raise ValueError("Not all rows have the same length")
+            print("Not all rows have the same length")
+            return []
 
     print(f"My shape is : ({x}, {y})")
     ret = slice(start, end)
