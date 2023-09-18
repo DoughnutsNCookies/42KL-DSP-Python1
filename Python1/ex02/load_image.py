@@ -9,7 +9,7 @@ def ft_load(path: str) -> list:
     try:
         with Image.open(path) as img:
             pixel_data = list(img.getdata())
-            print("The shape of the image is:" \
+            print("The shape of the image is:"
                   f" ({img.height}, {img.width}, {len(img.getbands())})")
             ret_list = []
             for x in range(img.height):
