@@ -1,8 +1,3 @@
-"""
-    Normal weight = 18.5 - 24.9
-"""
-
-
 def give_bmi(height: list[int | float],
              weight: list[int | float]) -> list[int | float]:
     """
