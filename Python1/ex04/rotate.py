@@ -28,10 +28,12 @@ def ft_rotate(path: str, angle: int) -> list:
     elif angle == 180:
         new_pixel_data = [list(reversed(rgb)) for rgb in reversed(pixel_data)]
     elif angle == 270:
-        new_pixel_data = [list(reversed(rgb)) for rgb in zip(*reversed(pixel_data))]
+        new_pixel_data = [list(reversed(rgb))
+                          for rgb in zip(*reversed(pixel_data))]
     image_array = np.array(new_pixel_data, dtype=np.uint8)
 
-    print(f"New shape after Transpose: ({len(new_pixel_data)}, {len(new_pixel_data[0])}, 3)")
+    print("New shape after Transpose:"
+          f"({len(new_pixel_data)}, {len(new_pixel_data[0])}, 3)")
     print(new_pixel_data)
     plt.imshow(image_array)
     plt.savefig("rotate.png")
