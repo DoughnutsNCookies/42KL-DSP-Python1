@@ -16,6 +16,10 @@ def ft_rotate(path: str, angle: int) -> list:
         print("Angle must be an integer or a float")
         return []
 
+    if angle not in [0, 90, 180, 270]:
+        print("Angle must be 0, 90, 180 or 270")
+        return []
+
     pixel_data = ft_load(path)
     if not pixel_data:
         return []
