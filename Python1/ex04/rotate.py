@@ -45,7 +45,7 @@ def main():
     # ft_rotate("animal.jpeg", 0)
     # ft_rotate("animal.jpeg", 90)
     # ft_rotate("animal.jpeg", 180)
-    # ft_rotate("animal.jpeg", 270)
+    ft_rotate("animal.jpeg", 270)
     # ft_rotate("None", 0)
     # ft_rotate(None, 0)
     # ft_rotate("animal.jpeg", 1)
