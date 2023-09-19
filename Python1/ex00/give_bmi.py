@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def give_bmi(height: list[int | float],
              weight: list[int | float]) -> list[int | float]:
     """
@@ -10,7 +13,16 @@ def give_bmi(height: list[int | float],
         Return a list of BMI
     """
     try:
-        return [w / (h * h) for h, w in zip(height, weight)]
+        if len(height) != len(weight):
+            raise ValueError("Length of height and weight must be the same")
+
+        height = np.array(height, dtype=float)
+        weight = np.array(weight, dtype=float)
+
+        if not np.all((height > 0) & (weight > 0)):
+            raise ValueError("Height and weight must be positive values")
+
+        return weight / (height ** 2)
     except Exception as err:
         print(err)
         return []
@@ -27,7 +39,11 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
         Return a list of boolean
     """
     try:
-        return [b > limit for b in bmi]
+        bmi = np.array(bmi, dtype=float)
+        limit = np.array(limit, dtype=float)
+
+        if not np.issubdtype(bmi.dtype, np.floating) or not np.issubdtype(limit.dtype, np.floating):
+            raise ValueError("BMI and limit must be floating-point values")
     except Exception as err:
         print(err)
         return []
