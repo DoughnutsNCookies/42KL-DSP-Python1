@@ -4,25 +4,28 @@ def slice_me(family: list, start: int, end: int) -> list:
         Print the shape of the original array and the sliced array
         Return the sliced array
     """
-    if not isinstance(family, list):
-        print("family is not a list")
-        return []
-
-    if not (isinstance(start, int) and isinstance(end, int)):
-        print("start and end must be integers")
-        return []
-
-    x = len(family)
-    y = len(family[0])
-    for f in family:
-        if len(f) != y:
-            print("Not all rows have the same length")
+    try:
+        if not isinstance(family, list):
+            print("family is not a list")
             return []
 
-    print(f"My shape is : ({x}, {y})")
-    ret = slice(start, end)
-    sliced_family = family[ret]
+        if len(family) == 0:
+            return []
 
-    x = len(sliced_family)
-    print(f"My new shape is : ({x}, {y})")
-    return sliced_family
+        x = len(family)
+        y = len(family[0])
+        for f in family:
+            if len(f) != y:
+                print("Not all rows have the same length")
+                return []
+
+        print(f"My shape is : ({x}, {y})")
+        ret = slice(start, end)
+        sliced_family = family[ret]
+
+        x = len(sliced_family)
+        print(f"My new shape is : ({x}, {y})")
+        return sliced_family
+    except Exception as err:
+        print(err)
+        return []
