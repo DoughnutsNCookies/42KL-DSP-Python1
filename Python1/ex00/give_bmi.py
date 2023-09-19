@@ -15,22 +15,17 @@ def give_bmi(height: list[int | float],
     if len(height) != len(weight):
         print("Length of height and weight must be the same")
         return []
-    for h in height:
-        if not isinstance(h, (float, int)):
-            print("Height must be a integer or float")
+    ret = []
+    for h, w in zip(height, weight):
+        if not isinstance(h, (float, int)) or not isinstance(w, (float, int)):
+            print("Height and eight must be a integer or float")
             return []
-        if h <= 0:
-            print("Height must be a positive integer or float")
+        if h <= 0 or w <= 0:
+            print("Height and weight must be a positive integer or float")
             return []
-    for w in weight:
-        if not isinstance(w, (float, int)):
-            print("Weight must be a integer or float")
-            return []
-        if w <= 0:
-            print("Weight must be a positive integer or float")
-            return []
-
-    return [w / (h * h) for h, w in zip(height, weight)]
+        ret.append(w / (h * h))
+        
+    return ret
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
