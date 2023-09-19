@@ -15,8 +15,6 @@ def ft_load(path: str) -> list:
             for x in range(img.height):
                 ret_list.append(pixel_data[x * img.width:(x + 1) * img.width])
             return ret_list
-    except FileNotFoundError:
-        print("Image not found at path")
-    except PermissionError:
-        print("Error loading the image")
-    return []
+    except Exception as err:
+        print(err)
+        return []
