@@ -10,6 +10,7 @@ def ft_zoom(path: str, factor: float) -> np.ndarray:
     """
     try:
         pixel_data = ft_load(path)
+        print(pixel_data)
         if factor == 1:
             new_pixel_data = pixel_data
         else:
@@ -34,6 +35,7 @@ def ft_zoom(path: str, factor: float) -> np.ndarray:
                 new_pixel_data = pixel_data[y1:y2, x1:x2, :]
 
         print(f"New shape after slicing: {new_pixel_data.shape}")
+        print(new_pixel_data)
         plt.imshow(new_pixel_data)
         plt.savefig("zoom.png")
         plt.show()
@@ -48,7 +50,7 @@ def main():
     """
         Main function
     """
-    # ft_zoom("animal.jpeg", 2)
+    ft_zoom("animal.jpeg", 2)
     # ft_zoom("animal.jpeg", 1)
     # ft_zoom("animal.jpeg", 0)
     # ft_zoom("animal.jpeg", 0.5)
