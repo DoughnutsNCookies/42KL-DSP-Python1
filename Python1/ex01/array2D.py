@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def slice_me(family: list, start: int, end: int) -> list:
     """
         Slice a 2D array (list of lists) from start to end
@@ -5,25 +8,20 @@ def slice_me(family: list, start: int, end: int) -> list:
         Return the sliced array
     """
     try:
-        if not isinstance(family, list):
-            raise TypeError("Family is not a list")
-
         if len(family) == 0:
             return []
 
-        x = len(family)
-        y = len(family[0])
-        for f in family:
-            if len(f) != y:
-                raise ValueError("Not all rows have the same length")
+        family_array = np.array(family)
+        x, y = family_array.shape
+        
+        if len(family_array.shape) != 2:
+            raise ValueError("family must be a 2D array")
 
-        print(f"My shape is : ({x}, {y})")
-        ret = slice(start, end)
-        sliced_family = family[ret]
-
-        x = len(sliced_family)
-        print(f"My new shape is : ({x}, {y})")
-        return sliced_family
+        print(f"My shape is: ({x}, {y})")
+        sliced_array = family_array[start:end]
+        x_sliced, y_sliced = sliced_array.shape
+        print(f"My new shape is: ({x_sliced}, {y_sliced})")
+        return sliced_array.tolist()
     except Exception as err:
         print(err)
         return []
