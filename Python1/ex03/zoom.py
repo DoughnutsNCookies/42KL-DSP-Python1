@@ -34,7 +34,9 @@ def ft_zoom(path: str, factor: int) -> list:
 
                 for y in range(h):
                     for x in range(w):
-                        new_pixel_data[y + paste_y][x + paste_x] = pixel_data[y][x]
+                        new_y = y + paste_y
+                        new_x = x + paste_x
+                        new_pixel_data[new_y][new_x] = pixel_data[y][x]
             else:
                 x1 = (w - new_w) // 2
                 x2 = x1 + new_w
