@@ -12,6 +12,9 @@ def give_bmi(height: list[int | float],
     if height is None or weight is None:
         print("Height and weight must not be None")
         return []
+    if not isinstance(height, list) or not isinstance(weight, list):
+        print("Height and weight must be a list")
+        return []
     if len(height) != len(weight):
         print("Length of height and weight must be the same")
         return []
@@ -40,6 +43,9 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """
     if bmi is None:
         print("BMI must not be None")
+        return []
+    if not isinstance(bmi, list):
+        print("BMI must be a list")
         return []
     for b in bmi:
         if not isinstance(b, (float, int)):

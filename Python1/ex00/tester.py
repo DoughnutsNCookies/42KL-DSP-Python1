@@ -58,3 +58,11 @@ print(apply_limit(None, 26))
 bmi = give_bmi([1, 2], [1, 2])
 print("bmi", type(bmi))
 print(apply_limit(bmi, None))
+
+bmi = give_bmi(2, 1)
+print("bmi", type(bmi))
+print(apply_limit(bmi, 26))
+
+bmi = give_bmi(2, 1)
+print("bmi", type(bmi))
+print(apply_limit(1, 26))
