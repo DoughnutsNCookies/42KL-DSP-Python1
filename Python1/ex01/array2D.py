@@ -13,7 +13,7 @@ def slice_me(family: list, start: int, end: int) -> list:
 
         family_array = np.array(family)
         x, y = family_array.shape
-        
+
         if len(family_array.shape) != 2:
             raise ValueError("family must be a 2D array")
 

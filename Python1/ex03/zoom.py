@@ -20,12 +20,14 @@ def ft_zoom(path: str, factor: float) -> np.ndarray:
                 new_h = int(h / factor)
                 new_w = int(w / factor)
                 print(new_h, new_w)
-                new_pixel_data = np.zeros((new_h, new_w, channels), dtype=np.uint8)
+                new_pixel_data = np.zeros((new_h, new_w, channels),
+                                          dtype=np.uint8)
 
                 paste_x = (new_w - w) // 2
                 paste_y = (new_h - h) // 2
 
-                new_pixel_data[paste_y:paste_y + h, paste_x:paste_x + w] = pixel_data
+                new_pixel_data[paste_y:paste_y + h,
+                               paste_x:paste_x + w] = pixel_data
             else:
                 x1 = (w - int(w / factor)) // 2
                 x2 = x1 + int(w / factor)
