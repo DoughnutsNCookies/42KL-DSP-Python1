@@ -15,15 +15,14 @@ def ft_rotate(path: str, angle: int) -> np.ndarray:
         pixel_data = ft_load(path)
         print(pixel_data)
 
-        if angle == 0:
-            new_pixel_data = pixel_data
-        elif angle == 90:
-            new_pixel_data = np.rot90(pixel_data, k=1)
+        if angle == 90:
+            new_pixel_data = [list(rgb) for rgb in zip(*reversed(pixel_data))]
         elif angle == 180:
-            new_pixel_data = np.rot90(pixel_data, k=2)
+            new_pixel_data = [list(reversed(rgb)) for rgb in reversed(pixel_data)]
         elif angle == 270:
-            new_pixel_data = np.rot90(pixel_data, k=3)
+            new_pixel_data = [list(reversed(rgb)) for rgb in zip(*reversed(pixel_data))]
 
+        new_pixel_data = np.array(new_pixel_data)
         print(f"New shape after rotation: {new_pixel_data.shape}")
         print(new_pixel_data)
         plt.imshow(new_pixel_data)
