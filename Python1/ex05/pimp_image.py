@@ -8,16 +8,12 @@ def ft_invert(array) -> list:
         Return a list of pixel data
     """
     try:
-        inverted_pixel_value = [
-            [tuple(255 - value for value in pixel) for pixel in row]
-            for row in array
-        ]
+        inverted_pixel_value = 255 - array
 
         print("Inverted pixel value:")
         print(inverted_pixel_value)
 
-        image_array = np.array(inverted_pixel_value, dtype=np.uint8)
-        plt.imshow(image_array)
+        plt.imshow(inverted_pixel_value)
         plt.savefig("invert.png")
         return inverted_pixel_value
     except Exception as err:
@@ -25,35 +21,38 @@ def ft_invert(array) -> list:
         return []
 
 
-def ft_color(array, color: str) -> list:
+def ft_color(array: np.ndarray, color: str) -> np.ndarray:
     """
-        Colors an image
-        Return a list of pixel data
+    Color an image using NumPy.
+    Return a NumPy array of pixel data.
     """
     try:
-        pixel_values = []
+        if not isinstance(array, np.ndarray):
+            raise TypeError("Input must be a NumPy array")
 
-        color_map = {
-            "red": 0,
-            "green": 1,
-            "blue": 2
-        }
+        if color not in ["red", "green", "blue"]:
+            raise ValueError("Color must be 'red', 'green', or 'blue'")
 
-        pixel_values = [[tuple(pixel[i] if i == color_map[color] else 0
-                        for i in range(3))
-                        for pixel in row]
-                        for row in array]
+        color_channel = {
+            "red": [1, 2],
+            "green": [0, 2],
+            "blue": [0, 1]
+        }[color]
+
+        pixel_values = array.copy()
+        pixel_values[:, :, color_channel] = 0
 
         print(color.capitalize() + " pixel value:")
         print(pixel_values)
 
-        image_array = np.array(pixel_values, dtype=np.uint8)
-        plt.imshow(image_array)
+        plt.imshow(pixel_values)
         plt.savefig(color + ".png")
+        plt.show()
+
         return pixel_values
     except Exception as err:
         print(err)
-        return []
+        return np.array([])
 
 
 def ft_red(array) -> list:
@@ -86,12 +85,8 @@ def ft_grey(array) -> list:
         Return a list of pixel data
     """
     try:
-        grey_pixel_values = []
-
-        grey_pixel_values = [
-            [(max(pixel[0], pixel[1], pixel[2]),) * 3 for pixel in row]
-            for row in array
-        ]
+        max_values = np.max(array, axis=2, keepdims=True)
+        grey_pixel_values = np.repeat(max_values, 3, axis=2)
 
         print("Grey pixel value:")
         print(grey_pixel_values)
