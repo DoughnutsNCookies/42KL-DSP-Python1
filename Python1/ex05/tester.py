@@ -7,13 +7,18 @@ def main():
         Test main function
     """
     pixel_data = ft_load("landscape.jpeg")
-    print(pixel_data)
+    # print(pixel_data)
 
     ft_invert(pixel_data)
     ft_red(pixel_data)
     ft_green(pixel_data)
     ft_blue(pixel_data)
     ft_grey(pixel_data)
+    # ft_invert(None)
+    # ft_invert([1])
+    # ft_invert([[[1]]])
+    # ft_invert(None)
+    # ft_invert("asd")
 
 
 if __name__ == "__main__":
