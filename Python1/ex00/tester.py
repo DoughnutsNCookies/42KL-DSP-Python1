@@ -15,6 +15,18 @@ bmi = give_bmi([1, 2], [1, "a"])
 print(bmi, type(bmi))
 print(apply_limit(bmi, 26))
 
+bmi = give_bmi([1, 2], [1, None])
+print(bmi, type(bmi))
+print(apply_limit(bmi, 26))
+
+bmi = give_bmi([1, 'a'], [1, 2])
+print(bmi, type(bmi))
+print(apply_limit(bmi, 26))
+
+bmi = give_bmi([1, None], [1, 2])
+print(bmi, type(bmi))
+print(apply_limit(bmi, 26))
+
 bmi = give_bmi([1, 2], [1, -2])
 print(bmi, type(bmi))
 print(apply_limit(bmi, 26))
@@ -26,3 +38,23 @@ print(apply_limit(bmi, "a"))
 bmi = give_bmi([1, 2], [1, 2])
 print("bmi", type(bmi))
 print(apply_limit([2, "a"], 26))
+
+bmi = give_bmi([1, 2], [1, 2])
+print("bmi", type(bmi))
+print(apply_limit([2, None], 26))
+
+bmi = give_bmi([1, 2], None)
+print("bmi", type(bmi))
+print(apply_limit(bmi, 26))
+
+bmi = give_bmi(None, [1, 2])
+print("bmi", type(bmi))
+print(apply_limit(bmi, 26))
+
+bmi = give_bmi([1, 2], [1, 2])
+print("bmi", type(bmi))
+print(apply_limit(None, 26))
+
+bmi = give_bmi([1, 2], [1, 2])
+print("bmi", type(bmi))
+print(apply_limit(bmi, None))
