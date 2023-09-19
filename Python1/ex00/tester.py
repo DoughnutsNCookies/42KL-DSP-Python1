@@ -63,6 +63,6 @@ bmi = give_bmi(2, 1)
 print("bmi", type(bmi))
 print(apply_limit(bmi, 26))
 
-bmi = give_bmi(2, 1)
+bmi = give_bmi([1, 0], [1, 2])
 print("bmi", type(bmi))
-print(apply_limit(1, 26))
+print(apply_limit(bmi, 26))
