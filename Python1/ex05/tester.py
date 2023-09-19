@@ -1,6 +1,7 @@
 from load_image import ft_load
 from pimp_image import ft_invert, ft_red, ft_green, ft_blue, ft_grey
 
+
 def main():
     """
         Test main function
