@@ -1,20 +1,18 @@
 from PIL import Image
+import numpy as np
 
 
-def ft_load(path: str) -> list:
+def ft_load(path: str) -> np.ndarray:
     """
-        Load an image from path
-        Return a list of pixel data
+    Load an image from path using NumPy.
+    Return a NumPy array of pixel data.
     """
     try:
         with Image.open(path) as img:
-            pixel_data = list(img.getdata())
-            print("The shape of image is:"
-                  f" ({img.height}, {img.width}, {len(img.getbands())})")
-            ret_list = []
-            for x in range(img.height):
-                ret_list.append(pixel_data[x * img.width:(x + 1) * img.width])
-            return ret_list
+            pixel_data = np.array(img)
+            height, width, channels = pixel_data.shape
+            print(f"The shape of image is: ({height}, {width}, {channels})")
+            return pixel_data
     except Exception as err:
         print(err)
-        return []
+        return np.array([])
