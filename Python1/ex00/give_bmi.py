@@ -42,8 +42,11 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
         bmi = np.array(bmi, dtype=float)
         limit = np.array(limit, dtype=float)
 
-        if not np.issubdtype(bmi.dtype, np.floating) or not np.issubdtype(limit.dtype, np.floating):
-            raise ValueError("BMI and limit must be floating-point values")
+        if not np.issubdtype(bmi.dtype, np.floating):
+            raise ValueError("BMI must be floating-point values")
+        if not np.issubdtype(limit.dtype, np.floating):
+            raise ValueError("Limit must be floating-point values")
+        return bmi > limit
     except Exception as err:
         print(err)
         return []
