@@ -53,9 +53,10 @@ def main():
         Main function
     """
     ft_zoom("animal.jpeg", 2)
+    # ft_zoom("animal.jpeg", 1.5)
     # ft_zoom("animal.jpeg", 1)
     # ft_zoom("animal.jpeg", 0)
-    # ft_zoom("animal.jpeg", 0.5)
+    # ft_zoom("animal.jpeg", 0.05)
     # ft_zoom("1", 2)
     # ft_zoom(1, 2)
     # ft_zoom("animal.jpeg", "a")
