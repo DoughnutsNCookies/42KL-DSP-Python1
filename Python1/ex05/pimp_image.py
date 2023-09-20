@@ -85,8 +85,8 @@ def ft_grey(array) -> list:
         Return a list of pixel data
     """
     try:
-        max_values = np.mean(array, axis=2, keepdims=True)
-        grey_pixel_values = np.repeat(max_values, 3, axis=2)
+        mean_values = np.mean(array, axis=2, keepdims=True)
+        grey_pixel_values = np.repeat(mean_values, 3, axis=2)
 
         print("Grey pixel value:")
         print(grey_pixel_values)

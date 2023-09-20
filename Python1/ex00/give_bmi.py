@@ -22,7 +22,7 @@ def give_bmi(height: list[int | float],
         if not np.all((height > 0) & (weight > 0)):
             raise ValueError("Height and weight must be positive values")
 
-        return weight / (height ** 2)
+        return (weight / (height ** 2)).tolist()
     except Exception as err:
         print(err)
         return []
@@ -46,7 +46,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
             raise ValueError("BMI must be floating-point values")
         if not np.issubdtype(limit.dtype, np.floating):
             raise ValueError("Limit must be floating-point values")
-        return bmi > limit
+        return (bmi > limit).tolist()
     except Exception as err:
         print(err)
         return []
